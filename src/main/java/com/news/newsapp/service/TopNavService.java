@@ -1,10 +1,8 @@
-package com.news.newsapp.dao;
+package com.news.newsapp.service;
 
 import java.util.List;
-
 import com.news.newsapp.entity.TopNav;
 
-public interface TopNavMapper {
-	
+public interface TopNavService {
 	public List<TopNav> findbyBottomNavId(int bottomNavId);
 }

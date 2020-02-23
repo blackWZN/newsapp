@@ -19,13 +19,12 @@ public class BottomNavController {
 	@Autowired
 	private BottomNavService bottomNavService;
 
-	
 	@RequestMapping(value = "/findAll", method = RequestMethod.GET)
 	public Result findAll() {
 		List<BottomNav> allList = bottomNavService.findAll();
-		if (allList != null) {
+		if (!allList.isEmpty()) {
 			return new Result(200, "查询成功", allList);
 		}
-		return new Result(500, "查询失败");
+		return new Result(500, "沒有数据");
 	}
 }

@@ -7,11 +7,12 @@ public class News {
 	private String title;
 	private String content;
 	private String author;
-	private String comment_count;
-	private String comment_id;
-	private Date update_time;
+	private String commentCount;
+	private String commentId;
+	private Date updateTime;
 	private String status;
-	private String top_nav_id;
+	private String topNavId;
+	private String images;
 	
 	public String getId() {
 		return id;
@@ -37,23 +38,24 @@ public class News {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public String getComment_count() {
-		return comment_count;
+
+	public String getCommentCount() {
+		return commentCount;
 	}
-	public void setComment_count(String comment_count) {
-		this.comment_count = comment_count;
+	public void setCommentCount(String commentCount) {
+		this.commentCount = commentCount;
 	}
-	public String getComment_id() {
-		return comment_id;
+	public String getCommentId() {
+		return commentId;
 	}
-	public void setComment_id(String comment_id) {
-		this.comment_id = comment_id;
+	public void setCommentId(String commentId) {
+		this.commentId = commentId;
 	}
-	public Date getUpdate_time() {
-		return update_time;
+	public Date getUpdateTime() {
+		return updateTime;
 	}
-	public void setUpdate_time(Date update_time) {
-		this.update_time = update_time;
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 	public String getStatus() {
 		return status;
@@ -61,11 +63,18 @@ public class News {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getTop_nav_id() {
-		return top_nav_id;
+	public String getTopNavId() {
+		return topNavId;
 	}
-	public void setTop_nav_id(String top_nav_id) {
-		this.top_nav_id = top_nav_id;
+	public void setTopNavId(String topNavId) {
+		this.topNavId = topNavId;
 	}
+	public String getImages() {
+		return images;
+	}
+	public void setImages(String images) {
+		this.images = images;
+	}
+	
 	
 }

@@ -1,10 +1,10 @@
-package com.news.newsapp.dao;
+package com.news.newsapp.service;
 
 import java.util.List;
 
 import com.news.newsapp.entity.News;
 
-public interface NewsMapper {
+public interface NewsService {
 	
 	public List<News> findAll();
 	

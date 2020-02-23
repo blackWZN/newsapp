@@ -2,13 +2,15 @@ package com.news.newsapp.entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class TopNav {
 	private String id;
 	private String name;
-	private Date update_time;
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
+	private Date updateTime;
 	private String status;
-	private String bottom_nav_id;
-	
+	private String bottomNavId;
 	public String getId() {
 		return id;
 	}
@@ -21,11 +23,11 @@ public class TopNav {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Date getUpdate_time() {
-		return update_time;
+	public Date getUpdateTime() {
+		return updateTime;
 	}
-	public void setUpdate_time(Date update_time) {
-		this.update_time = update_time;
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 	public String getStatus() {
 		return status;
@@ -33,12 +35,11 @@ public class TopNav {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getBottom_nav_id() {
-		return bottom_nav_id;
+	public String getBottomNavId() {
+		return bottomNavId;
 	}
-	public void setBottom_nav_id(String bottom_nav_id) {
-		this.bottom_nav_id = bottom_nav_id;
+	public void setBottomNavId(String bottomNavId) {
+		this.bottomNavId = bottomNavId;
 	}
-	
 	
 }
