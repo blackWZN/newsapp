@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.news.newsapp.dao.NewsMapper" >
-      
+<mapper namespace="com.news.newsapp.dao.NewsMapper">
+	<resultMap id="BaseResultMap"
+		type="com.news.newsapp.entity.News">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="content" property="content" jdbcType="VARCHAR" />
+		<result column="author" property="author" jdbcType="VARCHAR" />
+		<result column="comment_count" property="commentCount"
+			jdbcType="INTEGER" />
+		<result column="comment_id" property="commentId"
+			jdbcType="INTEGER" />
+		<result column="update_time" property="updateTime"
+			jdbcType="TIMESTAMP" />
+		<result column="STATUS" property="status" jdbcType="INTEGER" />
+		<result column="top_nav_id" property="topNavId"
+			jdbcType="INTEGER" />
+		<result column="images" property="images" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="findAll"  resultMap="BaseResultMap">
+		SELECT * FROM news WHERE STATUS = 1
+	</select>
+	
+	<select id="searchByTitle" parameterType="string" resultMap="BaseResultMap">
+		SELECT * FROM news WHERE title LIKE concat(concat("%",#{?}),"%")
+	</select>
 </mapper>

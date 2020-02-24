@@ -46,9 +46,6 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 	
-	
-  
-	
 	<!-- 开启注解驱动，支持springmvc一些更高级的功能，如映射动态请求，jsr303校验，快捷的ajax等 -->
 	<mvc:annotation-driven>
 		<!-- 设置直接响应纯文本时的编码格式 -->

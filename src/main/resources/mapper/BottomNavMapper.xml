@@ -9,6 +9,6 @@
   	</resultMap>
 
     <select id="findAll"  resultMap="BaseResultMap" >
-	    select * from bottom_nav
+	    SELECT * FROM bottom_nav WHERE STATUS=1
   	</select>
 </mapper>
