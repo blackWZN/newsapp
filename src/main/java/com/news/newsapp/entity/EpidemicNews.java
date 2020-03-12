@@ -5,7 +5,7 @@ import java.util.Date;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class News {
+public class EpidemicNews {
 	private String id;
 	private String title;
 	@JSONField(name = "source")
@@ -67,13 +67,11 @@ public class News {
 	public void setContentUrl(String contentUrl) {
 		this.contentUrl = contentUrl;
 	}
-	
 	@Override
 	public String toString() {
-		return "News [id=" + id + ", title=" + title + ", author=" + author + ", commentCount=" + commentCount
+		return "EpidemicNews [id=" + id + ", title=" + title + ", author=" + author + ", commentCount=" + commentCount
 				+ ", updateTime=" + updateTime + ", status=" + status + ", images=" + images + ", contentUrl="
 				+ contentUrl + "]";
 	}
 	
-		
 }

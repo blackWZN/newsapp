@@ -1,11 +1,16 @@
 package newsapp;
 
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import java.util.Random;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({ "classpath:spring/spring-dao.xml" })
+import org.junit.Test;
+
 public class NewsAppTest {
-
+	@Test
+	public void test() {
+		  StringBuffer result = new StringBuffer();
+	        for(int i=0;i<6;i++) {
+	            result.append(Integer.toHexString(new Random().nextInt(16)));
+	        }
+	        System.out.println(result.toString().toUpperCase());
+	}
 }

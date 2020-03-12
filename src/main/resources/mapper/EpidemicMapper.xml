@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.news.newsapp.dao.EpidemicMapper">
+	<resultMap id="EpidemicResultMap"
+		type="com.news.newsapp.entity.Epidemic">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="num" property="num" jdbcType="VARCHAR" />
+		<result column="subnum" property="subNum" jdbcType="VARCHAR" />
+		<result column="lastUpdateTime" property="lastUpdateTime"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<resultMap id="EpidemicNewsResultMap"
+		type="com.news.newsapp.entity.EpidemicNews">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="comment_count" property="commentCount" jdbcType="VARCHAR" />
+		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+		<result column="STATUS" property="status" jdbcType="INTEGER" />
+		<result column="images" property="images" jdbcType="VARCHAR" />
+		<result column="content_url" property="contentUrl" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<delete id="clearEpidemic">
+		TRUNCATE TABLE epidemic
+	</delete>
+
+	<insert id="insertEpidemic" parameterType="epidemic">
+		INSERT INTO epidemic
+		(name,num,subNum,lastUpdateTime)
+		VALUES(#{name},#{num},#{subNum},#{lastUpdateTime});
+	</insert>
+
+	<delete id="clearSpecial">
+		TRUNCATE TABLE special
+	</delete>
+
+	<insert id="insertSpecial" parameterType="special">
+		INSERT INTO special
+		(title,imgsrc)
+		VALUES(#{title},#{imgsrc});
+	</insert>
+
+	<delete id="clearColumn">
+		TRUNCATE TABLE epidemic_column
+	</delete>
+
+	<insert id="insertColumn" parameterType="column">
+		INSERT INTO
+		epidemic_column
+		(icon,name,url)
+		VALUES(#{icon},#{name},#{url})
+	</insert>
+
+	<delete id="clearEpidemicNews">
+		TRUNCATE TABLE epidemic_news
+	</delete>
+
+	<insert id="insertEpidemicNews" parameterType="epidemicNews">
+		INSERT INTO
+		epidemic_news
+		(title,author,comment_count,images,content_url)
+		VALUES(#{title},#{author},#{commentCount},#{images},#{contentUrl})
+	</insert>
+
+	<select id="epidemicList" resultMap="EpidemicResultMap">
+		select * from epidemic
+	</select>
+
+	<select id="specialList" resultType="special">
+		select * from special
+	</select>
+	<select id="columnLsit" resultType="column">
+		select * from epidemic_column
+	</select>
+	
+	<select id="epidemicNewsList" resultMap="EpidemicNewsResultMap">
+		select * from epidemic_news
+	</select>
+</mapper>

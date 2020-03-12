@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.news.newsapp.dao.AttentionMapper">
+	<resultMap id="BaseResultMap"
+		type="com.news.newsapp.entity.Attention">
+		
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="writer_id" property="authorId" jdbcType="VARCHAR" />
+		<result column="comment_count" property="commentCount"
+			jdbcType="INTEGER" />
+		<result column="update_time" property="updateTime"
+			jdbcType="TIMESTAMP" />
+		<result column="STATUS" property="status" jdbcType="INTEGER" />
+		<result column="images" property="images" jdbcType="VARCHAR" />
+		<result column="content_url" property="contentUrl" jdbcType="VARCHAR" />
+		<result column="user_id" property="UserId" jdbcType="INTEGER" />
+	</resultMap>
+	
+	<resultMap id="WriterResultMap"
+		type="com.news.newsapp.entity.Writer">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="author" property="author" jdbcType="VARCHAR" />
+		<result column="avatar" property="avatar" jdbcType="VARCHAR" />
+		<result column="update_time" property="updateTime"
+			jdbcType="TIMESTAMP" />
+		<result column="STATUS" property="status" jdbcType="INTEGER" />
+		<result column="user_id" property="userId" jdbcType="INTEGER" />
+	</resultMap>
+	
+	<insert id="insert" parameterType="attention">
+		INSERT INTO  attention (title,author,comment_count,images,content_url)
+		VALUES(#{title},#{author},#{commentCount},#{images},#{contentUrl})
+	</insert>
+	
+	<select id="list" resultMap="BaseResultMap">
+		SELECT * FROM attention
+	</select>
+	
+	<select id="selectWriterById" parameterType="string" resultMap="WriterResultMap">
+		SELECT * FROM writer WHERE id = #{?}
+	</select>
+	
+	<select id="getListByUser" parameterType="string" resultMap="BaseResultMap">
+		SELECT * FROM attention WHERE user_id = #{?};
+	</select>
+	
+	<select id="selectWriterByUserId" parameterType="string" resultMap="WriterResultMap">
+		SELECT * FROM writer WHERE user_id = #{?}
+	</select>
+	
+	<select id="findByWriterId" parameterType="string" resultMap="BaseResultMap">
+		SELECT * FROM attention WHERE writer_id = #{?}
+	</select>
+	
+	<update id="seeWriter" parameterType="string">
+		UPDATE writer SET user_id = #{userId} WHERE id = #{writerId}
+	</update>
+</mapper>

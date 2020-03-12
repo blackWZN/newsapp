@@ -5,7 +5,7 @@ import java.util.Date;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class News {
+public class Headline {
 	private String id;
 	private String title;
 	@JSONField(name = "source")
@@ -15,6 +15,7 @@ public class News {
 	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
 	private Date updateTime;
 	private String status;
+	private String topNavId;
 	@JSONField(name = "imgsrc")
 	private String images;
 	@JSONField(name = "url")
@@ -55,6 +56,12 @@ public class News {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	public String getTopNavId() {
+		return topNavId;
+	}
+	public void setTopNavId(String topNavId) {
+		this.topNavId = topNavId;
+	}
 	public String getImages() {
 		return images;
 	}
@@ -67,13 +74,11 @@ public class News {
 	public void setContentUrl(String contentUrl) {
 		this.contentUrl = contentUrl;
 	}
-	
 	@Override
 	public String toString() {
-		return "News [id=" + id + ", title=" + title + ", author=" + author + ", commentCount=" + commentCount
-				+ ", updateTime=" + updateTime + ", status=" + status + ", images=" + images + ", contentUrl="
-				+ contentUrl + "]";
+		return "Headline [id=" + id + ", title=" + title + ", author=" + author + ", commentCount=" + commentCount
+				+ ", updateTime=" + updateTime + ", status=" + status + ", topNavId=" + topNavId + ", images=" + images
+				+ ", contentUrl=" + contentUrl + "]";
 	}
-	
 		
 }

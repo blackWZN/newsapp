@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.news.newsapp.dao.SportsMapper">
+	<resultMap id="BaseResultMap"
+		type="com.news.newsapp.entity.Sports">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="author" property="author" jdbcType="VARCHAR" />
+		<result column="comment_count" property="commentCount"
+			jdbcType="INTEGER" />
+		<result column="update_time" property="updateTime"
+			jdbcType="TIMESTAMP" />
+		<result column="STATUS" property="status" jdbcType="INTEGER" />
+		<result column="images" property="images" jdbcType="VARCHAR" />
+		<result column="content_url" property="contentUrl" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<insert id="insert" parameterType="sports">
+		INSERT INTO sports (title,author,comment_count,images,content_url)
+  		VALUES (#{title},#{author},#{commentCount},#{images},#{contentUrl});
+	</insert>
+	
+	<select id="list" resultMap="BaseResultMap">
+		SELECT * FROM sports 
+	</select>
+	
+	<delete id="clearTable">
+		TRUNCATE TABLE sports
+	</delete>
+	
+	<!-- 新时代 -->
+	<insert id="insertNewTime" parameterType="sports">
+		INSERT INTO new_times (title,author,comment_count,images,content_url)
+  		VALUES (#{title},#{author},#{commentCount},#{images},#{contentUrl});
+	</insert>
+	<delete id="clearNewTime">
+		TRUNCATE TABLE new_times
+	</delete>
+	<select id="newTimeList" resultMap="BaseResultMap">
+		SELECT * FROM new_times 
+	</select>
+</mapper>

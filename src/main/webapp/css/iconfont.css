@@ -1,6 +1,8 @@
-@font-face {font-family: "iconfont";  
-  src:url('../fonts/iconfont.ttf') format('truetype'); /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/  
-} 
+@font-face {font-family: "iconfont";
+ src:url('../fonts/iconfont.ttf') format('truetype');
+ 
+
+}
 
 .iconfont {
   font-family: "iconfont" !important;
@@ -8,6 +10,20 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-weixiao:before {
+  content: "\e66d";
+}
+
+.icon-kaixin1:before {
+  content: "\e63e";
+}
+
+.icon-biaoqing-tushetou-:before {
+  content: "\e60b";
+  padding-top: 10px;
+  font-size: 19px;
 }
 
 .icon-shanchu:before {
